@@ -1,6 +1,7 @@
 :root{
   --dark: #333;
   --light: #fff;
+  --font1: #444;
 }
 
 *{
@@ -14,7 +15,7 @@ html{
 }
 
 body{
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   display: flex;
   background: #D3CCE3;  /* fallback for old browsers */
@@ -25,22 +26,73 @@ body{
 
 header{
   width: 260px;
-  height: 100%;
+  max-height: 100%;
   background: var(--dark);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+nav a{
+  text-decoration: none;
+  color:#fff;
+  font-size: 1.375rem;
+}
+
+a > li{
+  list-style: none;
+}
+
+header .burger{
+  position: absolute;
+  top: 5px;
+  right:-45px;
+  width:auto;
+  height:auto;
+  cursor: pointer;
+}
+
+.burger div{
+  height: 4px;
+  width: 30px;
+  background: #fff;
+  margin: 8px 0;
 }
 
 .container{
-  padding: 15px 30px 0;
+  padding: 0 30px 20px;
   width: 100%;
 }
 
-.container > button{
+.container .heading-box{
+  height: 60px;
+  width:111.2%;
+  margin-left: -100px;
+  margin-bottom: 20px;
+  background:#3c8dbc;
+}
+
+.container h1{
   height: 40px;
-  min-width: 100px;
+  border: none;
+  border-bottom:1.5px solid #333;
+  margin-bottom: 20px;
+  font-family: "Poppins",sans-serif;
+  font-weight: normal;
+  color: var(--font1);
+}
+
+.container > button{
+  height: 50px;
+  width: 200px;
+  border: 1px solid #3c8dbc;
+  border-radius: 6px;
+  background:#3c8ddc;
+  color: var(--light);
+  font-size: 1.375rem;
+  letter-spacing: 0.050rem;
 }
 
 .form{
@@ -62,6 +114,7 @@ header{
   margin-bottom: 20px;
   font-weight: lighter;
   letter-spacing: 0.1rem;
+  color: var(--font1);
 }
 
 .form div{
@@ -78,6 +131,8 @@ header{
 label{
   font-size:1.125rem;
   text-transform:capitalize;
+  color: var(--font1);
+  letter-spacing: 0.1rem;
 }
 
 #faculty,#programs{
@@ -89,6 +144,8 @@ label{
 
 #faculty > option{
   font-size: 1rem;
+  border: none;
+  background: none;
 }
 
 .form div:nth-of-type(4) > input{
