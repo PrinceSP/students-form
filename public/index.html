@@ -11,6 +11,12 @@
   </head>
   <body>
     <header>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+
       <p class="logo">Princeton University</p>
       <nav>
         <a href="#"><li>Home</li></a>
@@ -18,9 +24,9 @@
         <a href="#"><li>Contact</li></a>
       </nav>
 
-      <div class="burger"></div>
     </header>
     <div class="container">
+      <div class="heading-box"></div>
       <h1>Student Form</h1>
       <button type="button" name="button">Show Form</button>
       <form class="form">
@@ -42,10 +48,16 @@
 
         <div>
           <label for="gender">gender</label>
-          <input type="radio" name="gender">
-          <input type="radio" name="gender">
-        </div>
+          <label for="gender">
+            <input type="radio" name="gender">
+            Male
+          </label>
 
+          <label for="gender">
+            <input type="radio" name="gender">
+            Female
+          </label>
+        </div>
 
         <div>
           <label for="faculty">faculty</label>
