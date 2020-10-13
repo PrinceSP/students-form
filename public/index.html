@@ -11,59 +11,105 @@
   </head>
   <body>
     <header>
-      <div class="burger">
+      <!-- <div class="burger">
         <div class="line1"></div>
         <div class="line2"></div>
         <div class="line3"></div>
-      </div>
-
-      <div>
-        <p class="logo">Princeton University</p>
-      </div>
+      </div> -->
+      <p class="logo">Princeton University</p>
 
       <nav>
-        <a href="#"><i class="fas fa-tachometer-alt"></i><li>Home</li></a>
-        <a href="#"><i class="fas fa-address-card"></i><li>About</li></a>
-        <a href="#"><i class="fas fa-list"></i><li>Lists</li></a>
+        <a href="#">
+          <!-- <i class="fas fa-tachometer-alt"></i> -->
+          <li>Home</li></a>
+        <a href="#">
+          <!-- <i class="fas fa-address-card"></i> -->
+          <li>About</li></a>
       </nav>
 
     </header>
-    <div class="container">
-      <div class="heading-box"></div>
-      <h1>Student Form</h1>
-      <button type="button" name="button">Show Form</button>
-      <form class="form">
-        <h2>Student Data</h2>
-        <div>
-          <label for="id">student id</label>
-          <input type="text" name="id">
-        </div>
 
-        <div>
-          <label for="fullname">fullname</label>
-          <input type="text" name="fullname">
-        </div>
+    <section class="container">
+      <div class="frms">
+        <h1>student form</h1>
+        <button type="button" name="button">Show Form</button>
+        <form class="form">
+          <h2>Input Datas</h2>
+          <div>
+            <label for="id">student id</label>
+            <input type="text" name="id">
+          </div>
 
-        <div>
-          <label for="email">email</label>
-          <input type="email" name="email">
-        </div>
+          <div>
+            <label for="fullname">fullname</label>
+            <input type="text" name="fullname">
+          </div>
 
-        <div>
-          <label for="gender">gender</label>
-          <label for="gender">
-            <input type="radio" name="gender">
-            Male
-          </label>
+          <div>
+            <label for="email">email</label>
+            <input type="email" name="email">
+          </div>
 
-          <label for="gender">
-            <input type="radio" name="gender">
-            Female
-          </label>
-        </div>
+          <div>
+            <label for="gender">gender</label>
 
-        <div>
-          <label for="faculty">faculty</label>
+              <label for="gender">
+                <input type="radio" name="gender">
+                Male
+              </label>
+
+              <label for="gender">
+                <input type="radio" name="gender">
+                Female
+              </label>
+
+            </label>
+          </div>
+
+          <div>
+            <label for="faculty">faculty</label>
+            <select id="faculty" name="faculty">
+              <option>--select your faculty--</option>
+              <option>faculty of theology</option>
+              <option>faculty of nursing</option>
+              <option>faculty of agriculture</option>
+              <option>faculty of computer science</option>
+              <option>faculty of economic and business</option>
+              <option>faculty of secretary</option>
+              <option>faculty of education</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="programs">program of study</label>
+            <select id="programs" name="programs">
+              <option>--select your faculty--</option>
+              <option>theology bachelor</option>
+              <option>magister of theology</option>
+              <option>accounting</option>
+              <option>management</option>
+              <option>international program</option>
+              <option>nurse bachelor</option>
+              <option>profession</option>
+              <option>secretary</option>
+              <option>agriculture</option>
+              <option>system information</option>
+              <option>information of technology</option>
+              <option>religious education</option>
+              <option>english education</option>
+              <option>economic education</option>
+              <option>non-formal education</option>
+            </select>
+          </div>
+
+          <button type="submit">Add Student</button>
+        </form>
+      </div>
+
+      <div class="filters">
+        <h1>filter students by</h1>
+        <form>
+          <label>faculty</label>
           <select id="faculty" name="faculty">
             <option>--select your faculty--</option>
             <option>faculty of theology</option>
@@ -74,10 +120,7 @@
             <option>faculty of secretary</option>
             <option>faculty of education</option>
           </select>
-        </div>
-
-        <div>
-          <label for="programs">program of study</label>
+          <label>program of study</label>
           <select id="programs" name="programs">
             <option>--select your faculty--</option>
             <option>theology bachelor</option>
@@ -91,10 +134,16 @@
             <option>agriculture</option>
             <option>system information</option>
             <option>information of technology</option>
+            <option>religious education</option>
+            <option>english education</option>
+            <option>economic education</option>
+            <option>non-formal education</option>
           </select>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- <section class="students-datas"></section> -->
 
   </body>
 </html>
