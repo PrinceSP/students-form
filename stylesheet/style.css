@@ -36,9 +36,10 @@ header{
   justify-content: space-between;
   height: 60px;
   width:100%;
-  margin-bottom: 20px;
   padding: 0 20px;
+  margin-bottom: 40px;
   background:#001f3f;
+  z-index: 1;
 }
 
 header > p{
@@ -54,7 +55,7 @@ nav a {
   /* display: flex;
   justify-content: space-between; */
   text-decoration: none;
-  color: var(--darker);
+  color: var(--light);
   font-size: 1.375rem;
   /* width:60%; */
   transition: all 500ms ease-in-out;
@@ -91,10 +92,21 @@ nav a:hover{
   padding: 0 30px 20px;
   width: 100%;
   display: flex;
+  position: relative;
+  margin-bottom:50px;
+}
+
+.container::after{
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 95%;
+  background:rgba(190,150,170,0.5);
+  bottom:-10px;
 }
 
 .frms,.filters{
-  width: 100%
+  width: 50%
 }
 
 .container div > h1{
@@ -148,8 +160,7 @@ button{
   margin-bottom: 25px;
 }
 
-.form div > input,
-.form div > select{
+input,select{
   height: 40px;
   border: 0.5px solid var(--darker);
   border-radius: 4px;
@@ -170,11 +181,11 @@ label{
 
 select{
   border: 1px solid #ccc;
-  border-radius: 1px;
   appearance: none;
   outline: none;
   font-size: 1.275rem;
   padding-left: 10px;
+  border-radius: 4px;
 }
 
 .frms form div:nth-of-type(4)>label:nth-of-type(1){
@@ -196,11 +207,11 @@ select{
 
 .frms form div:nth-of-type(5)::after,
 .frms form div:nth-of-type(6)::after{
-  bottom: 29%;
+  bottom: 27%;
 }
 
 .frms form div:nth-of-type(6)::after{
-  bottom: 16%;
+  bottom: 15%;
 }
 
 option{
@@ -228,7 +239,7 @@ option:nth-of-type(even){
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  padding: 50px 100px;
+  padding: 65px 100px 0;
 }
 
 .filters > h1{
@@ -238,9 +249,35 @@ option:nth-of-type(even){
 .filters form{
   display: flex;
   flex-direction:  column;
+  border:.2px solid #daacbd;
+  border-top:3px solid #daacb3;
+  border-bottom:1.5px solid #daacb3;
+  border-radius: 4px;
+  padding: 20px;
 }
 
 .filters select{
   margin: 10px 0 10px;
-  height: 40px;
+}
+
+.students-datas{
+  width: 100%;
+  min-height:30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 30px;
+}
+.students-datas h1{
+  font-size: 1.876rem;
+  text-transform: capitalize;
+}
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+tr,th{
+  border: 1px solid var(--darker);
+  padding: 8px;
 }
