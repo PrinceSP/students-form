@@ -37,17 +37,17 @@
           <h2>Input Datas</h2>
           <div>
             <label for="id">student id</label>
-            <input type="text" name="id">
+            <input type="text" name="id" required>
           </div>
 
           <div>
-            <label for="fullname">fullname</label>
+            <label for="fullname">fullname</label required>
             <input type="text" name="fullname">
           </div>
 
           <div>
             <label for="email">email</label>
-            <input type="email" name="email">
+            <input type="email" name="email" required>
           </div>
 
           <div>
@@ -110,7 +110,7 @@
         <h1>filter students by</h1>
         <form>
           <label>faculty</label>
-          <select id="faculty" name="faculty">
+          <select id="faculty" name="fil-faculty">
             <option>--select your faculty--</option>
             <option>faculty of theology</option>
             <option>faculty of nursing</option>
@@ -120,8 +120,9 @@
             <option>faculty of secretary</option>
             <option>faculty of education</option>
           </select>
+          <button type="submit" name="button1">Filter</button>
           <label>program of study</label>
-          <select id="programs" name="programs">
+          <select id="programs" name="-filprograms">
             <option>--select your faculty--</option>
             <option>theology bachelor</option>
             <option>magister of theology</option>
@@ -139,6 +140,7 @@
             <option>economic education</option>
             <option>non-formal education</option>
           </select>
+          <button type="submit" name="button2">Filter</button>
         </form>
       </div>
     </section>
@@ -157,6 +159,6 @@
         </tr>
       </table>
     </section>
-
+  <script src="/src/app.js" charset="utf-8"></script>
   </body>
 </html>

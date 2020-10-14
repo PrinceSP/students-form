@@ -3,6 +3,7 @@
   --light: #fff;
   --darker: #777;
   --font1: #444;
+  --clip: polygon(100% 0%, 0 0%, 50% 100%);
 }
 
 *{
@@ -22,10 +23,10 @@ body{
   width: 100%;
   display: flex;
   flex-direction: column;
-  background: #D3CCE3;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(left, #E9E4F0, #D3CCE3);
-  background: -o-linear-gradient(left, #E9E4F0, #D3CCE3);
-  background: linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #E0EAFC;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(left, #CFDEF3, #E0EAFC);
+  background: -o-linear-gradient(left, #CFDEF3, #E0EAFC);
+  background: linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   position: relative;
 }
 
@@ -52,12 +53,9 @@ nav{
 }
 
 nav a {
-  /* display: flex;
-  justify-content: space-between; */
   text-decoration: none;
   color: var(--light);
   font-size: 1.375rem;
-  /* width:60%; */
   transition: all 500ms ease-in-out;
   padding: 0 10px;
 }
@@ -87,6 +85,10 @@ nav a:hover{
   background: #fff;
   margin: 8px 0;
 } */
+
+.fixed{
+  position: fixed;
+}
 
 .container{
   padding: 0 30px 20px;
@@ -209,7 +211,7 @@ select{
   width: 18px;
   height: 14px;
   background: var(--darker);
-  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  clip-path: var(--clip);
   right: 3.125em;
   pointer-events: none;
 }
@@ -264,22 +266,46 @@ option:nth-of-type(even){
   border-radius: 4px;
   padding: 20px;
   width:550px;
+  background: var(--light);
 }
 
 .filters label{
   color: var(--dark);
 }
 
+.filters label::after{
+  content:'';
+  position: absolute;
+  right:150px;
+  margin-top:45px;
+  clip-path: var(--clip);
+  background: grey;
+  height: 16px;
+  width: 18px;
+}
+
 .filters select{
   margin: 10px 0 10px;
   background: transparent;
   border: 1px solid;
+  color: grey;
+  position:relative;
 }
 
 .filters option:hover:nth-of-type(even){
   background: #0069d9;
   color: var(--light);
   margin: 4px 0;
+}
+
+.filters button{
+  width: 100%;
+  font-size: 1.875rem;
+  letter-spacing: 0.2rem;
+  background: #0069d9;
+}
+.filters button:nth-of-type(1){
+  margin: 0 0 15px;
 }
 
 .students-datas{
@@ -292,7 +318,6 @@ option:nth-of-type(even){
   padding:10px 30px;
   margin-bottom: 10px;
   margin:0 auto;
-  background: ;
 }
 .students-datas h1{
   font-size: 1.876rem;
