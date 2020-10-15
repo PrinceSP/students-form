@@ -23,7 +23,6 @@ window.addEventListener('scroll',function(){
   head.classList.toggle('fixed',window.scrollY > 0);
 })
 
-
 //hide-show button for information form
 show.addEventListener('click',function(e){
   e.stopPropagation();
@@ -51,9 +50,9 @@ main.addEventListener('change',function(e){
 
 form.addEventListener('submit',(e)=>{
   e.preventDefault();
-  const id = document.querySelector('input[name="id"]').value;
-  const fname = document.querySelector('input[name="fullname"]').value;
-  const email = document.querySelector('input[name="email"]').value;
+  const id = document.querySelector('input[name="id"]');
+  const fname = document.querySelector('input[name="fullname"]');
+  const email = document.querySelector('input[name="email"]');
   const gender = [document.querySelector('.male'),document.querySelector('.female')];
 
   let gd = gender.map(itm=>{
@@ -75,8 +74,8 @@ form.addEventListener('submit',(e)=>{
   btnDel.appendChild(i);
   btnDel.classList.add('delete');
 
-  tdId.textContent = id;
-  tdFname.textContent = fname;
+  tdId.textContent = id.value;
+  tdFname.textContent = fname.value;
   tdGender.textContent = gd;
   tdFac.textContent = main.value;
   tdProg.textContent = pos.value;
@@ -92,6 +91,12 @@ form.addEventListener('submit',(e)=>{
   //insert all rows created by clicking add button into the table
   table.appendChild(rows);
 
+  id.value = ''
+  fname.value = ''
+  email.value = ''
+  gender.forEach(i=>i.checked = false);
+  main.selectedIndex = 0;
+  pos.textContent = '';
   //delete button to delete chosen row
   btnDel.addEventListener('click',deleteRow);
 });
