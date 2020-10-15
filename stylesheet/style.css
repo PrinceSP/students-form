@@ -334,3 +334,18 @@ tr,th,td{
   text-align: center;
   letter-spacing: 0.055rem;
 }
+
+.delete{
+  height: 30px;
+  width: 50%;
+  font-size: 24px;
+  color: navy;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transform: translateY(50%);
+}
+
+.fa-user-minus{
+  pointer-events: none;
+}

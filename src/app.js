@@ -1,5 +1,4 @@
 const form = document.querySelector('.form');
-const gender = document.querySelectorAll('input[type="radio"]');
 const show = document.querySelector('[name="button-show"]');
 const table = document.querySelector('table');
 const main = document.querySelector('#faculties');
@@ -14,7 +13,6 @@ const programs = {
   sec:['secretary'],
   edu:['religious education','english education','economic education','non-formal education']
 }
-
 
 //set form display to none
 form.style.display = 'none';
@@ -43,13 +41,11 @@ form.addEventListener('submit',(e)=>{
   const id = document.querySelector('input[name="id"]').value;
   const fname = document.querySelector('input[name="fullname"]').value;
   const email = document.querySelector('input[name="email"]').value;
-  const th = document.querySelectorAll('th');
-  console.log(id);
-  console.log(fname);
-  console.log(email);
-  gender.forEach((itm,idx,arr)=>{
-    if (arr[idx].checked) {
-      console.log(arr[idx].value);
+  const gender = [document.querySelector('.male'),document.querySelector('.female')];
+
+  let gd = gender.map(itm=>{
+    if (itm.checked) {
+      return itm.value;
     }
   });
 
@@ -57,15 +53,28 @@ form.addEventListener('submit',(e)=>{
   const tdId = document.createElement('td');
   const tdFname = document.createElement('td');
   const tdGender = document.createElement('td');
+  const tdFac = document.createElement('td');
+  const tdProg = document.createElement('td');
+  const tdBtn = document.createElement('button');
+
+  const i = document.createElement('i');
+  i.className = 'fas fa-user-minus';
+  tdBtn.appendChild(i);
+  tdBtn.classList.add('delete');
 
   tdId.textContent = id;
   tdFname.textContent = fname;
-  tdGender.textContent = gender;
+  tdGender.textContent = gd;
 
+
+  //add the student's datas to rows
   rows.appendChild(tdId);
   rows.appendChild(tdFname);
   rows.appendChild(tdGender);
-  
+  rows.appendChild(tdFac);
+  rows.appendChild(tdProg);
+  rows.appendChild(tdBtn);
+
   table.appendChild(rows);
 });
 
