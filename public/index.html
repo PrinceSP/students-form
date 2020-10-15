@@ -11,28 +11,17 @@
   </head>
   <body>
     <header>
-      <!-- <div class="burger">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-      </div> -->
       <p class="logo">Princeton University</p>
-
       <nav>
-        <a href="#">
-          <!-- <i class="fas fa-tachometer-alt"></i> -->
-          <li>Home</li></a>
-        <a href="#">
-          <!-- <i class="fas fa-address-card"></i> -->
-          <li>About</li></a>
+        <a href="#"><li>Home</li></a>
+        <a href="#"><li>About</li></a>
       </nav>
-
     </header>
 
     <section class="container">
       <div class="frms">
         <h1>student form</h1>
-        <button type="button" name="button">Show Form</button>
+        <button type="button" name="button-show">Show Form</button>
         <form class="form">
           <h2>Input Datas</h2>
           <div>
@@ -41,8 +30,8 @@
           </div>
 
           <div>
-            <label for="fullname">fullname</label required>
-            <input type="text" name="fullname">
+            <label for="fullname">fullname</label>
+            <input type="text" name="fullname" required>
           </div>
 
           <div>
@@ -50,33 +39,23 @@
             <input type="email" name="email" required>
           </div>
 
-          <div>
-            <label for="gender">gender</label>
-
-              <label for="gender">
-                <input type="radio" name="gender">
-                Male
-              </label>
-
-              <label for="gender">
-                <input type="radio" name="gender">
-                Female
-              </label>
-
-            </label>
+          <div class="gender">
+            <label for="gender">gender</label></label>
+            <input type="radio" name="gender" value="male">
+            <input type="radio" name="gender" value="female">
           </div>
 
           <div>
             <label for="faculty">faculty</label>
             <select id="faculty" name="faculty">
-              <option>--select your faculty--</option>
-              <option>faculty of theology</option>
-              <option>faculty of nursing</option>
-              <option>faculty of agriculture</option>
-              <option>faculty of computer science</option>
-              <option>faculty of economic and business</option>
-              <option>faculty of secretary</option>
-              <option>faculty of education</option>
+              <option value="all">--select your faculty--</option>
+              <option value="theology">faculty of theology</option>
+              <option value="nursing">faculty of nursing</option>
+              <option value="agriculture">faculty of agriculture</option>
+              <option value="comp">faculty of computer science</option>
+              <option value="feb">faculty of economic and business</option>
+              <option value="sec">faculty of secretary</option>
+              <option value="edu">faculty of education</option>
             </select>
           </div>
 
@@ -111,18 +90,18 @@
         <form>
           <label>faculty</label>
           <select id="faculty" name="fil-faculty">
-            <option>--select your faculty--</option>
-            <option>faculty of theology</option>
-            <option>faculty of nursing</option>
-            <option>faculty of agriculture</option>
-            <option>faculty of computer science</option>
-            <option>faculty of economic and business</option>
-            <option>faculty of secretary</option>
-            <option>faculty of education</option>
+            <option value="all">--select your faculty--</option>
+            <option value="theology">faculty of theology</option>
+            <option value="nursing">faculty of nursing</option>
+            <option value="agriculture">faculty of agriculture</option>
+            <option value="comp">faculty of computer science</option>
+            <option value="feb">faculty of economic and business</option>
+            <option value="sec">faculty of secretary</option>
+            <option value="edu">faculty of education</option>
           </select>
-          <button type="submit" name="button1">Filter</button>
+          <button type="submit" name="button1">show student</button>
           <label>program of study</label>
-          <select id="programs" name="-filprograms">
+          <select id="programs" name="fil-programs">
             <option>--select your faculty--</option>
             <option>theology bachelor</option>
             <option>magister of theology</option>
@@ -140,7 +119,7 @@
             <option>economic education</option>
             <option>non-formal education</option>
           </select>
-          <button type="submit" name="button2">Filter</button>
+          <button type="submit" name="button2">show student</button>
         </form>
       </div>
     </section>
@@ -157,8 +136,22 @@
           <th>program of study</th>
           <th>action</th>
         </tr>
+        <tr>
+          <td>123123</td>
+          <td>esr</td>
+          <td>dsfdf</td>
+          <td>sddsfdf</td>
+          <td>kssfdjlkj</td>
+          <td>sdffdfsdfd</td>
+        </tr>
       </table>
     </section>
+
+    <footer>
+      <img src="" alt="">
+      <img src="" alt="">
+      <img src="" alt="">
+    </footer>
   <script src="/src/app.js" charset="utf-8"></script>
   </body>
 </html>
