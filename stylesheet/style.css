@@ -4,6 +4,7 @@
   --darker: #777;
   --font1: #444;
   --clip: polygon(100% 0%, 0 0%, 50% 100%);
+  --caps: capitalize;
 }
 
 *{
@@ -16,6 +17,8 @@
 
 html{
   font-size: 16px;
+  scroll-behavior: smooth;
+  font-family: "Poppins",sans-serif;
 }
 
 body{
@@ -23,10 +26,7 @@ body{
   width: 100%;
   display: flex;
   flex-direction: column;
-  background: #E0EAFC;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(left, #CFDEF3, #E0EAFC);
-  background: -o-linear-gradient(left, #CFDEF3, #E0EAFC);
-  background: linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #FAF9F8;
   position: relative;
 }
 
@@ -43,7 +43,7 @@ header{
   z-index: 1;
 }
 
-header > p{
+p{
   font-size: 1.875rem;
   color: var(--light);
 }
@@ -68,23 +68,6 @@ nav a:hover{
   width: 75%;
   color: var(--light);
 }
-
-/* header .burger{
-  position: absolute;
-  top: 5px;
-  right:-45px;
-  width:auto;
-  height:auto;
-  cursor: pointer;
-} */
-
-/*
-.burger div{
-  height: 4px;
-  width: 30px;
-  background: #fff;
-  margin: 8px 0;
-} */
 
 .fixed{
   position: fixed;
@@ -111,12 +94,11 @@ nav a:hover{
   width: 50%
 }
 
-.container div > h1{
+div > h1{
   height: 40px;
   margin-bottom: 20px;
-  font-family: "Poppins",sans-serif;
   font-weight: normal;
-  text-transform:capitalize;
+  text-transform:var(--caps);
   color: var(--font1);
   position: relative;
 }
@@ -140,6 +122,7 @@ button{
   color: var(--light);
   font-size: 1.375rem;
   letter-spacing: 0.050rem;
+  cursor: pointer;
 }
 
 .form{
@@ -155,7 +138,7 @@ button{
   position: relative;
 }
 
-.form h2{
+h2{
   height: 30px;
   border: none;
   border-bottom: 1px solid #ccc;
@@ -185,13 +168,15 @@ input,select{
 
 label{
   font-size:1.125rem;
-  text-transform:capitalize;
+  text-transform:var(--caps);
   color: var(--font1);
   letter-spacing: 0.1rem;
 }
 
 select{
   border: 1px solid #ccc;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   outline: none;
   font-size: 1.275rem;
@@ -199,13 +184,13 @@ select{
   border-radius: 4px;
 }
 
-.frms form div:nth-of-type(4)>label:nth-of-type(1){
+.gender>label{
   margin-bottom: 5px;
 }
 
 
-.frms form div:nth-of-type(5)::after,
-.frms form div:nth-of-type(6)::after{
+form div:nth-of-type(5)::after,
+form div:nth-of-type(6)::after{
   content:'';
   position: absolute;
   width: 18px;
@@ -216,13 +201,13 @@ select{
   pointer-events: none;
 }
 
-.frms form div:nth-of-type(5)::after,
-.frms form div:nth-of-type(6)::after{
-  bottom: 27%;
+form div:nth-of-type(5)::after,
+form div:nth-of-type(6)::after{
+  bottom: 29%;
 }
 
-.frms form div:nth-of-type(6)::after{
-  bottom: 15%;
+form div:nth-of-type(6)::after{
+  bottom: 16.5%;
 }
 
 option{
@@ -300,10 +285,12 @@ option:nth-of-type(even){
 
 .filters button{
   width: 100%;
-  font-size: 1.875rem;
+  font-size: 1.687rem;
   letter-spacing: 0.2rem;
   background: #0069d9;
+  text-transform:var(--caps);
 }
+
 .filters button:nth-of-type(1){
   margin: 0 0 15px;
 }
@@ -316,12 +303,14 @@ option:nth-of-type(even){
   align-items: center;
   justify-content: space-around;
   padding:10px 30px;
-  margin-bottom: 10px;
-  margin:0 auto;
+  margin:0 auto 10px;
 }
 .students-datas h1{
-  font-size: 1.876rem;
-  text-transform: capitalize;
+  font-size: 3.75rem;
+  text-transform: var(--caps);
+  font-weight: lighter;
+  letter-spacing: 0.1rem;
+  color:#7b4c74;
 }
 
 .students-datas input{
@@ -329,14 +318,19 @@ option:nth-of-type(even){
   background: transparent;
   font-size: 1.25rem;
   text-align: center;
+  margin:6px 0 30px;
+  border-color: purple;
 }
 table{
   width: 100%;
   border-collapse: collapse;
 }
-tr,th{
+tr,th,td{
   border: 0.5px solid var(--dark);
-  padding: 8px;
-  text-transform: capitalize;
+  border-left:0;
+  border-right:0;
+  padding: 15px 8px;
+  text-transform: var(--caps);
+  text-align: center;
   letter-spacing: 0.055rem;
 }
