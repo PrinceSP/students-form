@@ -8,10 +8,10 @@ const programs = {
   theology:['bechelor theology','magister of theology'],
   nursing:['bachelor nursing','proffession'],
   agriculture:['agriculture'],
-  comp:['system information','information of technology'],
-  feb:['accounting','management','internatinal program'],
-  sec:['secretary'],
-  edu:['religious education','english education','economic education','non-formal education']
+  computer_science:['system information','information of technology'],
+  economic:['accounting','management','international program'],
+  secretary:['secretary'],
+  education:['religious education','english education','economic education','non-formal education']
 }
 
 //set form display to none
@@ -36,6 +36,19 @@ show.addEventListener('click',function(e){
   }
 });
 
+main.addEventListener('change',function(e){
+  const selected = programs[this.value];
+
+  while (pos.options.length>0) {
+    pos.options.remove(0);
+  }
+
+  Array.from(selected).forEach(el=>{
+    const option = new Option(el,el);
+    pos.appendChild(option);
+  })
+});
+
 form.addEventListener('submit',(e)=>{
   e.preventDefault();
   const id = document.querySelector('input[name="id"]').value;
@@ -55,17 +68,18 @@ form.addEventListener('submit',(e)=>{
   const tdGender = document.createElement('td');
   const tdFac = document.createElement('td');
   const tdProg = document.createElement('td');
-  const tdBtn = document.createElement('button');
+  const btnDel = document.createElement('button');
 
   const i = document.createElement('i');
   i.className = 'fas fa-user-minus';
-  tdBtn.appendChild(i);
-  tdBtn.classList.add('delete');
+  btnDel.appendChild(i);
+  btnDel.classList.add('delete');
 
   tdId.textContent = id;
   tdFname.textContent = fname;
   tdGender.textContent = gd;
-
+  tdFac.textContent = main.value;
+  tdProg.textContent = pos.value;
 
   //add the student's datas to rows
   rows.appendChild(tdId);
@@ -73,20 +87,20 @@ form.addEventListener('submit',(e)=>{
   rows.appendChild(tdGender);
   rows.appendChild(tdFac);
   rows.appendChild(tdProg);
-  rows.appendChild(tdBtn);
+  rows.appendChild(btnDel);
 
+  //insert all rows created by clicking add button into the table
   table.appendChild(rows);
+
+  //delete button to delete chosen row
+  btnDel.addEventListener('click',deleteRow);
 });
 
-main.addEventListener('change',function(e){
-  const selected = programs[this.value];
-
-  while (pos.options.length>0) {
-    pos.options.remove(0);
+//deleting rows logic
+function deleteRow(e){
+  e.stopPropagation();
+  const rows = e.target;
+  if(rows.classList[0]==="delete"){
+    rows.parentElement.remove();
   }
-
-  Array.from(selected).forEach(el=>{
-    const option = new Option(el,el);
-    pos.appendChild(option);
-  })
-});
+}
