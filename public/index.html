@@ -6,6 +6,8 @@
     <meta name="X-UA-Compatible" content="IE=EDGE">
     <meta name="author" content="Prince Siachin">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+    <link rel='stylesheet' id='fontawesome-css' href="https://use.fontawesome.com/releases/v5.0.1/css/all.css?ver=4.9.1" type='text/css' media='all' />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheet/style.css">
     <title>Student's Form</title>
   </head>
@@ -41,8 +43,10 @@
 
           <div class="gender">
             <label for="gender">gender</label>
-            <input class="male" type="radio" name="gender" value="male">
-            <input class="female" type="radio" name="gender" value="female">
+            <div>
+              <input class="male" type="radio" name="gender" value="male">
+              <input class="female" type="radio" name="gender" value="female">
+            </div>
           </div>
 
           <div>
@@ -111,7 +115,7 @@
 
     <section class="students-datas">
       <h1>student information list</h1>
-      <input type="text" name="searchbar" value="" placeholder="search student by name">
+      <input type="text" name="searchbar" value="" placeholder="search student by name....">
       <table>
         <tr>
           <th>student id</th>

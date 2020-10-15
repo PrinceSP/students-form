@@ -184,10 +184,40 @@ select{
   border-radius: 4px;
 }
 
+.gender{
+  height: 100px;
+}
+
 .gender>label{
   margin-bottom: 5px;
 }
 
+.gender>div{
+  height: 70px;
+  width: 100%;
+  position: relative;
+}
+
+.gender > div >input{
+  width: 50px;
+  height: 100px;
+}
+
+.gender > div::before,
+.gender > div::after{
+  content:'Male';
+  position: absolute;
+  left: 46px;
+  top: 7px;
+  font-size: 1.2rem;
+  width: 100px;
+  text-align: left;
+}
+
+.gender>div::after{
+  content:'Female';
+  top:47px;
+}
 
 form div:nth-of-type(5)::after,
 form div:nth-of-type(6)::after{
@@ -203,11 +233,11 @@ form div:nth-of-type(6)::after{
 
 form div:nth-of-type(5)::after,
 form div:nth-of-type(6)::after{
-  bottom: 29%;
+  bottom: 27.5%;
 }
 
 form div:nth-of-type(6)::after{
-  bottom: 16.5%;
+  bottom: 15.5%;
 }
 
 option{
@@ -304,6 +334,7 @@ option:nth-of-type(even){
   justify-content: space-around;
   padding:10px 30px;
   margin:0 auto 10px;
+  position: relative;
 }
 .students-datas h1{
   font-size: 3.75rem;
@@ -317,10 +348,22 @@ option:nth-of-type(even){
   width: 100%;
   background: transparent;
   font-size: 1.25rem;
-  text-align: center;
+  padding-left: 40px;
   margin:6px 0 30px;
   border-color: purple;
+  position: relative;
 }
+
+.students-datas::before{
+  font-family: 'Font Awesome 5 Free';
+  content:"\f002";
+  position: absolute;
+  left: 40px;
+  width: 30px;
+  color: var(--darker);
+  font-size: 1.375rem;
+}
+
 table{
   width: 100%;
   border-collapse: collapse;
