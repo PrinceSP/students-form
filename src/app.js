@@ -1,9 +1,11 @@
 const form = document.querySelector('.form');
+const form2 = document.querySelector('#form2');
 const show = document.querySelector('[name="button-show"]');
 const table = document.querySelector('table');
 const main = document.querySelector('#faculties');
 const pos = document.querySelector('#programs');
 const input = document.querySelector('[name="searchbar"]');
+const filter = [document.querySelector('.fil-faculty'),document.querySelector('.fil-programs')];
 
 const programs = {
   theology:['bechelor theology','magister of theology'],
@@ -122,6 +124,16 @@ input.addEventListener('keyup',function(){
 
 });
 
+filter[0].addEventListener('change',function(e){
+  const values = [0,3];
+  filtersList(e,values[0],values[1]);
+});
+
+filter[1].addEventListener('change',function(e){
+  const values = [1,4];
+  filtersList(e,values[0],values[1]);
+});
+
 //deleting rows logic
 function deleteRow(e){
   e.stopPropagation();
@@ -129,4 +141,21 @@ function deleteRow(e){
   if(rows.classList[0]==="delete"){
     rows.parentElement.remove();
   }
+}
+
+function filtersList(e,vals,row){
+  e.preventDefault();
+  const list = filter[vals].childNodes;
+  const table = document.querySelector('table');
+  const trList = table.querySelectorAll('.data-lists');
+  const val = e.target.value.toUpperCase();
+  console.log(val);
+  trList.forEach((itm,idx,arr)=>{
+    let a = itm.getElementsByTagName('td')[row];
+    if (a.textContent.toUpperCase().includes(val)>0) {
+      arr[idx].style.display = ""
+    } else{
+      arr[idx].style.display = "none"
+    }
+  })
 }

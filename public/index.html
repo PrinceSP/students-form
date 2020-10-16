@@ -6,8 +6,6 @@
     <meta name="X-UA-Compatible" content="IE=EDGE">
     <meta name="author" content="Prince Siachin">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
-    <link rel='stylesheet' id='fontawesome-css' href="https://use.fontawesome.com/releases/v5.0.1/css/all.css?ver=4.9.1" type='text/css' media='all' />
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheet/style.css">
     <title>Student's Form</title>
   </head>
@@ -76,9 +74,9 @@
 
       <div class="filters">
         <h1>filter students by</h1>
-        <form>
+        <form id="form2">
           <label>faculty</label>
-          <select id="faculty" name="fil-faculty">
+          <select class="fil-faculty" name="fil-faculty">
             <option value="all">--select your faculty--</option>
             <option value="theology">faculty of theology</option>
             <option value="nursing">faculty of nursing</option>
@@ -88,34 +86,34 @@
             <option value="sec">faculty of secretary</option>
             <option value="edu">faculty of education</option>
           </select>
-          <button type="submit" name="button1">show student</button>
+          <!-- <button type="submit" name="button1">show student</button> -->
           <label>program of study</label>
-          <select id="fil-programs" name="fil-programs">
-            <option class="all">--select your faculty--</option>
-            <option class="theology">theology bachelor</option>
-            <option class="theology">magister of theology</option>
-            <option class="feb">accounting</option>
-            <option class="feb">management</option>
-            <option class="feb">international program</option>
-            <option class="nursing">nurse bachelor</option>
-            <option class="nursing">profession</option>
-            <option class="secretary">secretary</option>
-            <option class="agriculture">agriculture</option>
-            <option class="computer-science">system information</option>
-            <option class="computer-science">information of technology</option>
-            <option class="education">religious education</option>
-            <option class="education">english education</option>
-            <option class="education">economic education</option>
-            <option class="education">non-formal education</option>
+          <select class="fil-programs" name="fil-programs">
+            <option value="all">--select your faculty--</option>
+            <option value="theology">theology bachelor</option>
+            <option value="theology_magister">magister of theology</option>
+            <option value="feb1">accounting</option>
+            <option value="feb2">management</option>
+            <option value="feb3">international program</option>
+            <option value="nursing">nurse bachelor</option>
+            <option value="nursing_proffession">profession</option>
+            <option value="secretary">secretary</option>
+            <option value="agriculture">agriculture</option>
+            <option value="system">system information</option>
+            <option value="information">information of technology</option>
+            <option value="religious">religious education</option>
+            <option value="english">english education</option>
+            <option value="economic_edu">economic education</option>
+            <option value="non_formal">non-formal education</option>
           </select>
-          <button type="submit" name="button2">show student</button>
+          <!-- <button type="submit" name="button2">show student</button> -->
         </form>
       </div>
     </section>
 
     <section class="students-datas">
       <h1>student information list</h1>
-      <input type="text" name="searchbar" value="" placeholder="search student by name....">
+      <input type="text" name="searchbar" class="options" value="" placeholder="search student by name....">
       <table>
         <tbody>
           <th>student id</th>
