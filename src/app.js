@@ -3,6 +3,7 @@ const show = document.querySelector('[name="button-show"]');
 const table = document.querySelector('table');
 const main = document.querySelector('#faculties');
 const pos = document.querySelector('#programs');
+const input = document.querySelector('[name="searchbar"]');
 
 const programs = {
   theology:['bechelor theology','magister of theology'],
@@ -69,11 +70,15 @@ form.addEventListener('submit',(e)=>{
   const tdProg = document.createElement('td');
   const btnDel = document.createElement('button');
 
+  rows.className = 'data-lists';
+  tdFname.className = 'username';
+  //create delete button and its icon
   const i = document.createElement('i');
   i.className = 'fas fa-user-minus';
   btnDel.appendChild(i);
   btnDel.classList.add('delete');
 
+  //assign value into table row
   tdId.textContent = id.value;
   tdFname.textContent = fname.value;
   tdGender.textContent = gd;
@@ -101,6 +106,22 @@ form.addEventListener('submit',(e)=>{
   btnDel.addEventListener('click',deleteRow);
 });
 
+input.addEventListener('keyup',function(){
+  const table = document.querySelector('table');
+  const trList = table.querySelectorAll('.data-lists');
+  const val = this.value.toUpperCase();
+  console.log(val);
+  trList.forEach((itm,idx,arr)=>{
+    let a = itm.getElementsByTagName('td')[1];
+    if (a.textContent.toUpperCase().includes(val)>0) {
+      arr[idx].style.display = ""
+    } else{
+      arr[idx].style.display = "none"
+    }
+  })
+
+});
+
 //deleting rows logic
 function deleteRow(e){
   e.stopPropagation();
@@ -109,3 +130,8 @@ function deleteRow(e){
     rows.parentElement.remove();
   }
 }
+
+
+// function searchQuery(word,datas){
+//
+// }

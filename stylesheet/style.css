@@ -354,11 +354,12 @@ option:nth-of-type(even){
   position: relative;
 }
 
-.students-datas::before{
+.students-datas >h1::before{
   font-family: 'Font Awesome 5 Free';
   content:"\f002";
   position: absolute;
   left: 40px;
+  top:95px;
   width: 30px;
   color: var(--darker);
   font-size: 1.375rem;
@@ -368,7 +369,7 @@ table{
   width: 100%;
   border-collapse: collapse;
 }
-tr,th,td{
+tr,th,td,tbody{
   border: 0.5px solid var(--dark);
   border-left:0;
   border-right:0;
