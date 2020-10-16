@@ -130,8 +130,3 @@ function deleteRow(e){
     rows.parentElement.remove();
   }
 }
-
-
-// function searchQuery(word,datas){
-//
-// }
