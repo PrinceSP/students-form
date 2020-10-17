@@ -137,10 +137,16 @@ filter[1].addEventListener('change',function(e){
 //deleting rows logic
 function deleteRow(e){
   e.stopPropagation();
-  const rows = e.target;
-  if(rows.classList[0]==="delete"){
-    rows.parentElement.remove();
+  let cf = confirm('ar you sure want to delete this?')
+  if (cf === true) {
+    const rows = e.target;
+    if(rows.classList[0]==="delete"){
+      rows.parentElement.remove();
+    }
+  } else {
+    alert('delete canceled')
   }
+
 }
 
 function filtersList(e,vals,row){
