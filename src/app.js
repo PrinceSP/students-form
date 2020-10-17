@@ -78,7 +78,7 @@ form.addEventListener('submit',(e)=>{
   const i = document.createElement('i');
   i.className = 'fas fa-user-minus';
   btnDel.appendChild(i);
-  btnDel.classList.add('delete');
+  btnDel.classList.add('del-btn');
 
   //assign value into table row
   tdId.textContent = id.value;
