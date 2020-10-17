@@ -31,7 +31,6 @@ body{
 }
 
 header{
-  background: var(--dark);
   display: flex;
   align-items: center;
   justify-content: space-between;

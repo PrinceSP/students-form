@@ -6,7 +6,6 @@ const main = document.querySelector('#faculties');
 const pos = document.querySelector('#programs');
 const input = document.querySelector('[name="searchbar"]');
 const filter = [document.querySelector('.fil-faculty'),document.querySelector('.fil-programs')];
-
 const programs = {
   theology:['bechelor theology','magister of theology'],
   nursing:['bachelor nursing','proffession'],
@@ -86,7 +85,6 @@ form.addEventListener('submit',(e)=>{
   tdGender.textContent = gd;
   tdFac.textContent = main.value;
   tdProg.textContent = pos.value;
-
   //add the student's datas to rows
   rows.appendChild(tdId);
   rows.appendChild(tdFname);
@@ -97,6 +95,7 @@ form.addEventListener('submit',(e)=>{
 
   //insert all rows created by clicking add button into the table
   table.appendChild(rows);
+  // saveLocalStorage(id.value);
 
   id.value = ''
   fname.value = ''
@@ -128,7 +127,6 @@ filter[0].addEventListener('change',function(e){
   const values = [0,3];
   filtersList(e,values[0],values[1]);
 });
-
 filter[1].addEventListener('change',function(e){
   const values = [1,4];
   filtersList(e,values[0],values[1]);
@@ -137,7 +135,7 @@ filter[1].addEventListener('change',function(e){
 //deleting rows logic
 function deleteRow(e){
   e.stopPropagation();
-  let cf = confirm('ar you sure want to delete this?')
+  let cf = confirm('are you sure want to delete this?')
   if (cf === true) {
     const rows = e.target;
     if(rows.classList[0]==="delete"){
@@ -164,4 +162,16 @@ function filtersList(e,vals,row){
       arr[idx].style.display = "none"
     }
   })
+}
+
+function saveLocalStorage(items){
+  let id;
+  if (localStorage.getItem("id"===null)) {
+    id = []
+  }else{
+    id = JSON.parse(localStorage.getItem("id"))
+  }
+
+  id.push(items)
+  localStorage.setItem("id",JSON.stringify(id))
 }
