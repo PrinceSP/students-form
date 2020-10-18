@@ -397,14 +397,20 @@ tr,th,td,tbody{
 }
 
 .del-btn{
-  height: 30px;
+  height: 35px;
   width: 50%;
   font-size: 24px;
-  color: navy;
+  /* color: navy; */
+  color: #fffc00;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */
+  column-rule: -webkit-linear-gradient(left, #ffffff, #fffc00);
+  column-rule: -o-linear-gradient(left, #ffffff, #fffc00);
+  column-rule: linear-gradient(to right, #ffffff, #fffc00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   border: none;
   background: none;
   cursor: pointer;
-  transform: translateY(50%);
+  transform: translateY(20%);
+  background: var(--dark);
 }
 
 .fa-user-minus{
