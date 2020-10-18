@@ -62,36 +62,8 @@ form.addEventListener('submit',(e)=>{
     }
   });
 
-  const rows = document.createElement('tr');
-  const tdId = document.createElement('td');
-  const tdFname = document.createElement('td');
-  const tdGender = document.createElement('td');
-  const tdFac = document.createElement('td');
-  const tdProg = document.createElement('td');
-  const btnDel = document.createElement('button');
-
-  rows.className = 'data-lists';
-  tdFname.className = 'username';
-
-  const i = document.createElement('i');
-  i.className = 'fas fa-user-minus';
-  btnDel.appendChild(i);
-  btnDel.classList.add('del-btn');
-
-  tdId.textContent = id.value;
-  tdFname.textContent = fname.value;
-  tdGender.textContent = gd;
-  tdFac.textContent = main.value;
-  tdProg.textContent = pos.value;
-
-  rows.appendChild(tdId);
-  rows.appendChild(tdFname);
-  rows.appendChild(tdGender);
-  rows.appendChild(tdFac);
-  rows.appendChild(tdProg);
-  rows.appendChild(btnDel);
-
-  table.appendChild(rows);
+  let l = localStorage.getItem("tr");
+  addItemsFromLocalStorage(l,l,id,fname,gd,main,pos);
 
   let locals = [id.value,fname.value,gd,main.value,pos.value];
   saveLocalStorage(locals[0],locals[1],locals[2],locals[3],locals[4]);
@@ -103,7 +75,6 @@ form.addEventListener('submit',(e)=>{
   main.selectedIndex = 0;
   pos.textContent = '';
 
-  btnDel.addEventListener('click',deleteRow);
 });
 
 
@@ -193,49 +164,57 @@ function getItemsFromLocalStorage(){
     rows = JSON.parse(localStorage.getItem('tr'))
   }
   rows.map(items=>{
-    const rows = document.createElement('tr');
-    const tdId = document.createElement('td');
-    const tdFname = document.createElement('td');
-    const tdGender = document.createElement('td');
-    const tdFac = document.createElement('td');
-    const tdProg = document.createElement('td');
-    const btnDel = document.createElement('button');
+    addItemsFromLocalStorage(items);
+  })
+}
 
-    rows.className = 'data-lists';
-    tdFname.className = 'username';
-    const i = document.createElement('i');
-    i.className = 'fas fa-user-minus';
-    btnDel.appendChild(i);
-    btnDel.classList.add('del-btn');
+function addItemsFromLocalStorage(items,r,id,nm,gds,facs,progs){
+  const rows = document.createElement('tr');
+  const tdId = document.createElement('td');
+  const tdFname = document.createElement('td');
+  const tdGender = document.createElement('td');
+  const tdFac = document.createElement('td');
+  const tdProg = document.createElement('td');
+  const btnDel = document.createElement('button');
 
+  rows.className = 'data-lists';
+  tdFname.className = 'username';
+
+  const i = document.createElement('i');
+  i.className = 'fas fa-user-minus';
+  btnDel.appendChild(i);
+  btnDel.classList.add('del-btn');
+
+  if (r!==undefined && r!==0 && r!==null && r!==false && r!=='') {
+    tdId.textContent = id.value;
+    tdFname.textContent = nm.value;
+    tdGender.textContent = gds;
+    tdFac.textContent = facs.value;
+    tdProg.textContent = progs.value;
+
+  } else if (r===null) {
+    tdId.textContent = id.value;
+    tdFname.textContent = nm.value;
+    tdGender.textContent = gds;
+    tdFac.textContent = facs.value;
+    tdProg.textContent = progs.value;
+  }
+  else {
     tdId.textContent = items.ids;
     tdFname.textContent = items.names;
     tdGender.textContent = items.genders;
     tdFac.textContent = items.fac;
     tdProg.textContent = items.prog;
+  }
 
-    rows.appendChild(tdId);
-    rows.appendChild(tdFname);
-    rows.appendChild(tdGender);
-    rows.appendChild(tdFac);
-    rows.appendChild(tdProg);
-    rows.appendChild(btnDel);
+  rows.appendChild(tdId);
+  rows.appendChild(tdFname);
+  rows.appendChild(tdGender);
+  rows.appendChild(tdFac);
+  rows.appendChild(tdProg);
+  rows.appendChild(btnDel);
 
-    table.appendChild(rows);
-    btnDel.addEventListener('click',deleteRow);
-  })
+  table.appendChild(rows);
+
+  btnDel.addEventListener('click',deleteRow);
 }
-
-// function removeFromLocalStorage(items){
-//   let rows;
-//   if (localStorage.getItem('tr')===null) {
-//     rows = []
-//   } else{
-//     localStorage.getItem('tr')
-//     rows = JSON.parse(localStorage.getItem('tr'))
-//   }
-//   const idx = items.querySelectorAll('tr');
-//   idx.forEach((i,ix,ar)=>{
-//     rows.splice(rows.indexOf(ix),1);
-//   })
-// }
