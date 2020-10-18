@@ -136,6 +136,7 @@ function deleteRow(e){
   const rows = e.target;
   if (cf === true) {
     if(rows.classList[0]==="del-btn"){
+      // removeFromLocalStorage(table);
       rows.parentElement.remove();
     }
   } else {
@@ -223,3 +224,17 @@ function getItemsFromLocalStorage(){
     btnDel.addEventListener('click',deleteRow);
   })
 }
+
+// function removeFromLocalStorage(items){
+//   let rows;
+//   if (localStorage.getItem('tr')===null) {
+//     rows = []
+//   } else{
+//     localStorage.getItem('tr')
+//     rows = JSON.parse(localStorage.getItem('tr'))
+//   }
+//   const idx = items.querySelectorAll('tr');
+//   idx.forEach((i,ix,ar)=>{
+//     rows.splice(rows.indexOf(ix),1);
+//   })
+// }
