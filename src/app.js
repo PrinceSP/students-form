@@ -106,6 +106,7 @@ form.addEventListener('submit',(e)=>{
   btnDel.addEventListener('click',deleteRow);
 });
 
+
 input.addEventListener('keyup',function(){
   const table = document.querySelector('table');
   const trList = table.querySelectorAll('.data-lists');
