@@ -63,7 +63,7 @@ form.addEventListener('submit',(e)=>{
   });
 
   let l = localStorage.getItem("tr");
-  addItemsFromLocalStorage(l,l,id,fname,gd,main,pos);
+  addItems(l,l,id,fname,gd,main,pos);
 
   let locals = [id.value,fname.value,gd,main.value,pos.value];
   saveLocalStorage(locals[0],locals[1],locals[2],locals[3],locals[4]);
@@ -168,7 +168,7 @@ function getItemsFromLocalStorage(){
   })
 }
 
-function addItemsFromLocalStorage(items,r,id,nm,gds,facs,progs){
+function addItems(items,r,id,nm,gds,facs,progs){
   const rows = document.createElement('tr');
   const tdId = document.createElement('td');
   const tdFname = document.createElement('td');
