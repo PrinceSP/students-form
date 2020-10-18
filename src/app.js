@@ -16,6 +16,7 @@ const programs = {
   education:['religious education','english education','economic education','non-formal education']
 }
 
+document.addEventListener('DOMContentLoaded',getItems);
 //set form display to none
 form.style.display = 'none';
 
@@ -85,6 +86,9 @@ form.addEventListener('submit',(e)=>{
   tdGender.textContent = gd;
   tdFac.textContent = main.value;
   tdProg.textContent = pos.value;
+
+
+
   //add the student's datas to rows
   rows.appendChild(tdId);
   rows.appendChild(tdFname);
@@ -95,18 +99,22 @@ form.addEventListener('submit',(e)=>{
 
   //insert all rows created by clicking add button into the table
   table.appendChild(rows);
-  // saveLocalStorage(id.value);
 
+  let locals = [id.value,fname.value,gd,main.value,pos.value];
+  saveLocalStorage(locals[0],locals[1],locals[2],locals[3],locals[4]);
+  //reset inputs value
   id.value = ''
   fname.value = ''
   email.value = ''
   gender.forEach(i=>i.checked = false);
   main.selectedIndex = 0;
   pos.textContent = '';
+
   //delete button to delete chosen row
   btnDel.addEventListener('click',deleteRow);
 });
 
+//search query logic
 input.addEventListener('keyup',function(){
   const table = document.querySelector('table');
   const trList = table.querySelectorAll('.data-lists');
@@ -138,13 +146,12 @@ function deleteRow(e){
   let cf = confirm('are you sure want to delete this?')
   if (cf === true) {
     const rows = e.target;
-    if(rows.classList[0]==="delete"){
+    if(rows.classList[0]==="del-btn"){
       rows.parentElement.remove();
     }
   } else {
-    alert('delete canceled')
+    alert('delete canceled');
   }
-
 }
 
 function filtersList(e,vals,row){
@@ -164,14 +171,75 @@ function filtersList(e,vals,row){
   })
 }
 
-function saveLocalStorage(items){
-  let id;
-  if (localStorage.getItem("id"===null)) {
-    id = []
-  }else{
-    id = JSON.parse(localStorage.getItem("id"))
+function saveLocalStorage(id,name,gender,faculties,programs){
+
+  let tr = {
+    ids: id,
+    names:name,
+    genders:gender,
+    fac:faculties,
+    prog:programs
   }
 
-  id.push(items)
-  localStorage.setItem("id",JSON.stringify(id))
+  // localStorage.setItem('tr',JSON.stringify(tr));
+
+  let rows;
+
+  if (localStorage.getItem('tr')===null) {
+    // tr = {}
+    rows = []
+  } else{
+    localStorage.getItem('tr')
+    rows = JSON.parse(localStorage.getItem('tr'))
+  }
+  rows.push(tr)
+  localStorage.setItem('tr',JSON.stringify(rows));
+
+}
+
+function getItems(){
+  let rows;
+  if (localStorage.getItem('tr')===null) {
+    rows = []
+  } else{
+    localStorage.getItem('tr')
+    rows = JSON.parse(localStorage.getItem('tr'))
+  }
+  rows.map(items=>{
+    // const rows = document.createElement('tr');
+    // const tdId = document.createElement('td');
+    // const tdFname = document.createElement('td');
+    // const tdGender = document.createElement('td');
+    // const tdFac = document.createElement('td');
+    // const tdProg = document.createElement('td');
+    // const btnDel = document.createElement('button');
+    //
+    // rows.className = 'data-lists';
+    // tdFname.className = 'username';
+    // //create delete button and its icon
+    // const i = document.createElement('i');
+    // i.className = 'fas fa-user-minus';
+    // btnDel.appendChild(i);
+    // btnDel.classList.add('del-btn');
+    //
+    // //assign value into table row from localStorage
+    // tdId.textContent = items.ids;
+    // tdFname.textContent = items.names;
+    // tdGender.textContent = items.genders;
+    // tdFac.textContent = items.fac;
+    // tdProg.textContent = items.prog;
+    //
+    //
+    // //add the student's datas to rows
+    // rows.appendChild(tdId);
+    // rows.appendChild(tdFname);
+    // rows.appendChild(tdGender);
+    // rows.appendChild(tdFac);
+    // rows.appendChild(tdProg);
+    // rows.appendChild(btnDel);
+    //
+    // //insert all rows created by clicking add button into the table
+    // table.appendChild(rows);
+    console.log(items.ids+items.names+items.genders+items.fac+items.prog);
+  })
 }
