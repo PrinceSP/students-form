@@ -64,20 +64,24 @@ a > li{
 }
 
 nav a:hover{
-  width: 75%;
-  color: var(--light);
+  color: var(--darker);
 }
 
 .fixed{
   position: fixed;
 }
 
-.container{
+.container,.about-container{
   padding: 0 30px 20px;
   width: 100%;
   display: flex;
   position: relative;
   margin-bottom:50px;
+}
+
+.about-container{
+  flex-direction: column;
+  height:51.4vh;
 }
 
 .container::after{
@@ -100,6 +104,20 @@ div > h1{
   text-transform:var(--caps);
   color: var(--font1);
   position: relative;
+}
+
+.about-container > h1{
+  font-size: 3.125rem;
+  border-bottom: 1.5px solid var(--darker);
+  padding: 10px;
+  height: 70px;
+  width: 100%;
+  font-weight: bolder;
+}
+
+.about-container >p{
+  color: var(--font1);
+  font-weight: 400;
 }
 
 .frms > h1::after{
@@ -394,14 +412,19 @@ tr,th,td,tbody{
 }
 
 footer{
-  margin-top: 100px;
   min-height: 90px;
   background-color: #444;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 10px;
+  padding: 5px 0 10px;
+  position: absolute;
+  width:100%;
+  bottom: -300px;
+}
+.about-footer{
+  bottom:0;
 }
 span{
   color: var(--light);
