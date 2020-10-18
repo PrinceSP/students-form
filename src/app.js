@@ -78,13 +78,11 @@ form.addEventListener('submit',(e)=>{
   btnDel.appendChild(i);
   btnDel.classList.add('del-btn');
 
-
   tdId.textContent = id.value;
   tdFname.textContent = fname.value;
   tdGender.textContent = gd;
   tdFac.textContent = main.value;
   tdProg.textContent = pos.value;
-
 
   rows.appendChild(tdId);
   rows.appendChild(tdFname);
@@ -93,12 +91,10 @@ form.addEventListener('submit',(e)=>{
   rows.appendChild(tdProg);
   rows.appendChild(btnDel);
 
-
   table.appendChild(rows);
 
   let locals = [id.value,fname.value,gd,main.value,pos.value];
   saveLocalStorage(locals[0],locals[1],locals[2],locals[3],locals[4]);
-
 
   id.value = ''
   fname.value = ''
@@ -123,7 +119,6 @@ input.addEventListener('keyup',function(){
       arr[idx].style.display = "none"
     }
   })
-
 });
 
 filter[0].addEventListener('change',function(e){
