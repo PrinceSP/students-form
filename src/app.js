@@ -7,7 +7,7 @@ const pos = document.querySelector('#programs');
 const input = document.querySelector('[name="searchbar"]');
 const filter = [document.querySelector('.fil-faculty'),document.querySelector('.fil-programs')];
 const programs = {
-  theology:['bechelor theology','magister of theology'],
+  theology:['theology bachelors','magister of theology'],
   nursing:['bachelor nursing','proffession'],
   agriculture:['agriculture'],
   computer_science:['system information','information of technology'],
@@ -79,7 +79,6 @@ form.addEventListener('submit',(e)=>{
 
 
 input.addEventListener('keyup',function(){
-  const table = document.querySelector('table');
   const trList = table.querySelectorAll('.data-lists');
   const val = this.value.toUpperCase();
   console.log(val);
@@ -108,7 +107,6 @@ function deleteRow(e){
   const rows = e.target;
   if (cf === true) {
     if(rows.classList[0]==="del-btn"){
-      // removeFromLocalStorage(table);
       rows.parentElement.remove();
     }
   } else {
