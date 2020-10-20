@@ -56,7 +56,7 @@ form.addEventListener('submit',(e)=>{
   const email = document.querySelector('input[name="email"]');
   const gender = [document.querySelector('.male'),document.querySelector('.female')];
 
-  let gd = gender.map(itm=>{
+  let gd = gender.reduce(itm=>{
     if (itm.checked) {
       return itm.value;
     }
