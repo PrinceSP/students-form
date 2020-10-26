@@ -105,9 +105,13 @@ function deleteRow(e){
   e.stopPropagation();
   let cf = confirm('are you sure want to delete this?');
   const rows = e.target;
+
   if (cf === true) {
+    const parents = rows.parentElement;
+    const textName = parents.getElementsByTagName('td')[1].textContent;
     if(rows.classList[0]==="del-btn"){
       rows.parentElement.remove();
+      deleteFromLocal(textName);
     }
   } else {
     alert('delete canceled');
@@ -163,6 +167,23 @@ function getItemsFromLocalStorage(){
   }
   rows.map(items=>{
     addItemsFromLocalStorage(items);
+  })
+}
+
+function deleteFromLocal(items){
+  let rows;
+  if (localStorage.getItem('tr')===null) {
+    rows = []
+  } else{
+    localStorage.getItem('tr')
+    rows = JSON.parse(localStorage.getItem('tr'))
+  }
+  rows.map((item,idx)=>{
+    let itemToDelete = rows[indexOf();
+    if (itemToDelete == items) {
+      rows.splice(itemToDelete,1);
+      localStorage.setItem('tr',JSON.stringify(rows));
+    }
   })
 }
 
