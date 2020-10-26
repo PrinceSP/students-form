@@ -110,7 +110,7 @@ function deleteRow(e){
     const parents = rows.parentElement;
     const textName = parents.getElementsByTagName('td')[1].textContent;
     if(rows.classList[0]==="del-btn"){
-      rows.parentElement.remove();
+      parents.remove();
       deleteFromLocal(textName);
     }
   } else {
@@ -178,13 +178,16 @@ function deleteFromLocal(items){
     localStorage.getItem('tr')
     rows = JSON.parse(localStorage.getItem('tr'))
   }
-  rows.map((item,idx)=>{
-    let itemToDelete = rows[indexOf();
-    if (itemToDelete == items) {
-      rows.splice(itemToDelete,1);
+  // rows.forEach(item=>{
+    let index = rows.findIndex(x=>x.names===items);
+    let itemToDelete = rows[index].names;
+    console.log(itemToDelete);
+    console.log(index);
+    if (itemToDelete === items) {
+      rows.splice(index,1);
       localStorage.setItem('tr',JSON.stringify(rows));
     }
-  })
+  // })
 }
 
 function addItemsFromLocalStorage(items,r,id,nm,gds,facs,progs){
