@@ -56,7 +56,7 @@ form.addEventListener('submit',(e)=>{
   const email = document.querySelector('input[name="email"]');
   const gender = [document.querySelector('.male'),document.querySelector('.female')];
 
-  let gd = gender.reduce(itm=>{
+  let gd = gender.map(itm=>{
     if (itm.checked) {
       return itm.value;
     }
@@ -178,16 +178,14 @@ function deleteFromLocal(items){
     localStorage.getItem('tr')
     rows = JSON.parse(localStorage.getItem('tr'))
   }
-  // rows.forEach(item=>{
-    let index = rows.findIndex(x=>x.names===items);
-    let itemToDelete = rows[index].names;
-    console.log(itemToDelete);
-    console.log(index);
-    if (itemToDelete === items) {
-      rows.splice(index,1);
-      localStorage.setItem('tr',JSON.stringify(rows));
-    }
-  // })
+  let index = rows.findIndex(x=>x.names===items);
+  let itemToDelete = rows[index].names;
+  // console.log(itemToDelete);
+  // console.log(index);
+  if (itemToDelete === items) {
+    rows.splice(index,1);
+    localStorage.setItem('tr',JSON.stringify(rows));
+  }
 }
 
 function addItemsFromLocalStorage(items,r,id,nm,gds,facs,progs){
